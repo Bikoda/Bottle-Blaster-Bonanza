@@ -10,9 +10,12 @@ public class Target : MonoBehaviour
     private float xRange = 4.0f;
     private float yPosition = -2.0f;
     public Rigidbody rigidbody;
+    private GameManager gameManager;
+    
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.AddForce(RandomRange(), ForceMode.Impulse);
         rigidbody.AddTorque(RandomTorque(), Random.Range(-randomTorque, randomTorque), Random.Range(-randomTorque, randomTorque), ForceMode.Impulse);
@@ -29,6 +32,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        gameManager.ScoreToAddMethod(5);
     }
 
     private void OnTriggerEnter(Collider other)
