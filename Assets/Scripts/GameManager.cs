@@ -9,20 +9,18 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
+    public bool isGameActive;
     private float respownTime = 1.0f;
     public Button restartButton;
     public Button exitButton;
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOver;
-    public bool isGameActive;
+    public GameObject titleScreen;
+
     // Start is called before the first frame update
     void Start()
     {
-        isGameActive = true;
-        score = 0;
-        StartCoroutine(RespwnTimed());
-        ScoreToAddMethod(0);
        
 
     }
@@ -69,5 +67,16 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void StartGame(float difficulty)
+    {
+        isGameActive = true;
+        score = 0;
+        respownTime /= difficulty;
+        StartCoroutine(RespwnTimed());
+        ScoreToAddMethod(0);
+        titleScreen.gameObject.SetActive(false);
+
     }
 }

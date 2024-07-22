@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private float minForceRange = 12.0f;
+    private float minForceRange = 14.0f;
     private float maxForceRange = 16.0f;
     private float randomTorque = 10.0f;
     private float xRange = 4.0f;
