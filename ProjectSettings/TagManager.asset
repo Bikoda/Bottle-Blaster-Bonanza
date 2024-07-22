@@ -7,6 +7,15 @@ TagManager:
   - GameManager
   - Gun
   - Pistol
+  - bad
+  - Bad
+  - Beer
+  - wine
+  - Skull
+  - Bomb
+  - Wine
+  - RestartButton
+  - ExitButton
   layers:
   - Default
   - TransparentFX
